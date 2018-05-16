@@ -1,0 +1,6 @@
+---
+- hosts: localhost
+
+  roles:
+    - { role: var, tags: ['var'] }
+    - { role: ports, tags: ['ports'] }
