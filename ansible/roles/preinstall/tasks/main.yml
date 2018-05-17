@@ -10,13 +10,7 @@
     - htop
     - dialog
     - lsof
-    - pwgen
   ignore_errors: yes
-
-- name: Pip Modes
-  pip: "name={{item}} state=latest"
-  with_items:
-    - docker-py
 
 - name: Ansible-ToolBox from https://github.com/larsks/ansible-toolbox
   shell: pip install git+https://github.com/larsks/ansible-toolbox
