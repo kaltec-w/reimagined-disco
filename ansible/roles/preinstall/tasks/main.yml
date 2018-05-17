@@ -6,7 +6,7 @@
     - wget
     - figlet
     - glances
-    - python-pip
+    - python2-pip
     - python34-pip
     - python-passlib
     - curl
