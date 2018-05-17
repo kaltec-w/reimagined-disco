@@ -31,3 +31,8 @@
 - name: "Wait for 10 seconds before continuing"
   wait_for:
     timeout: 10
+
+- name: create rdisco network
+  docker_network:
+    name: "rdisco"
+    state: present
