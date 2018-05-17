@@ -20,11 +20,8 @@ CHOICE=$(dialog --backtitle "$BACKTITLE" \
                 2>&1 >/dev/tty)
 case $CHOICE in
         A)
-            bash /opt/plexguide/menus/donate/main.sh ;;
+            bash /opt/rdisco/scripts/full_install.sh ;;
         Z)
-            bash /opt/plexguide/scripts/message/ending.sh
             exit 0 ;;
 esac
 
-## repeat menu when exiting
-bash /opt/plexguide/menus/main.sh

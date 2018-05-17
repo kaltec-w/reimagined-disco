@@ -2,8 +2,33 @@
 - name: Install required packages
   apt: "name={{item}} state=present"
   with_items:
-    - apt-transport-https
-    - ca-certificates
-    - software-properties-common
+    - yum-utils
+    - device-mapper-persistent-data
+    - lvm2
 
-- name: Add official gpg signing key
+- name: Add Docker Repository
+  yum_repository:
+    name: docker-ce
+    description: Official Docker Repository
+    baseurl: https://download.docker.com/linux/centos/docker-ce.repo
+    enabled: no
+
+- name: Install Docker
+  yum:
+    name: docker-ce
+    state: present
+    enablerepo: docker-ce
+
+
+- name: Stop docker to enable overlay2
+  systemd: state=stopped name=docker enabled=yes
+
+- name: Import daemon.json
+  copy: "src=daemon.json dest=/etc/docker/daemon.json force=yes mode=0775"
+
+- name: Start docker
+  systemd: state=started name=docker enabled=yes
+
+- name: "Wait for 10 seconds before commencing"
+  wait_for:
+    timeout: 10
