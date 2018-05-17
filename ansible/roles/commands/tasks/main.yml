@@ -1,13 +1,13 @@
 ---
-  - name: Remove rDisco
-    file:
-      path: /bin/rdisco
-      state: absent
-    when: rdisco.stat.exists
+- name: Remove rDisco
+  file:
+    path: /bin/rdisco
+    state: absent
+  when: rdisco.stat.exists
 
-  - name: Install rDisco
-    template:
-      src: rdisco.js2
-      dest: /bin/rdisco
-      force: yes
-      mode: 0775 
+- name: Install rDisco
+  template:
+    src: rdisco.js2
+    dest: /bin/rdisco
+    force: yes
+    mode: 0775 
