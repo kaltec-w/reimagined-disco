@@ -1,1 +1,0 @@
-sudo yum install -y git python-pip python34-pip python-setuptools python34-setuptools && sudo easy_install -U pip && requests && sudo python34 -m pip install requests

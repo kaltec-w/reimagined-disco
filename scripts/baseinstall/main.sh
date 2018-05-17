@@ -4,7 +4,7 @@
 ############################################################ Basic Menu
 if dialog --stdout --title "rDisco Install" \
   --backtitle "kaltec" \
-  --yesno "\nWould you like to install rDisco?" 7 50; then
+  --yesno "\nWould you like to deploy rDisco:LibreNMS?" 7 50; then
   clear
 else
   clear
@@ -20,10 +20,6 @@ echo "8" | dialog --gauge "Conducting a System Update" 7 50 0
 yum upgrade -y 1>/dev/null 2>&1
 sleep 5
 
-echo "16" | dialog --gauge "Enabling System Health Monitoring" 7 50 0
-yum install sysstat nmon -y 1>/dev/null 2>&1
-sleep 5
-
 ############################################################ Ansible Installation
 echo "32" | dialog --gauge "Installing: Ansible Playbook" 7 50 0
 yum install ansible -y 1>/dev/null 2>&1
@@ -32,10 +28,6 @@ sleep 5
 ############################################################ Start of Role Execution
 echo "40" | dialog --gauge "Installing: rDisco Dependencies" 7 50 0
 ansible-playbook /opt/rdisco/ansible/rdisco.yml --tags preinstall 1>/dev/null 2>&1
-sleep 5
-
-echo "48" | dialog --gauge "Installing: rDisco Commands" 7 50 0
-ansible-playbook /opt/rdisco/ansible/rdisco.yml --tags commands &>/dev/null &
 sleep 5
 
 echo "56" | dialog --gauge "Installing: rDisco MOTD" 7 50 0
@@ -67,10 +59,6 @@ sleep 5
 
 echo "88" | dialog --gauge "Installing: WatchTower" 7 50 0
 ansible-playbook /opt/rdisco/ansible/rdisco.yml --tags watchtower &>/dev/null &
-sleep 5
-
-echo "96" | dialog --gauge "Installing: Python Support" 7 50 0
-bash /opt/rdisco/scripts/baseinstall/python.sh 1>/dev/null 2>&1
 sleep 5
 
 
