@@ -5,7 +5,6 @@
     - vim
     - wget
     - figlet
-    - update-motd
     - glances
     - python-pip
     - python34-pip
