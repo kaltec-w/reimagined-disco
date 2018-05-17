@@ -11,13 +11,12 @@
     name: docker-ce
     description: Official Docker Repository
     baseurl: https://download.docker.com/linux/centos/docker-ce.repo
-    enabled: no
+    enabled: yes
 
 - name: Install Docker
   yum:
     name: docker-ce
     state: present
-    enablerepo: docker-ce.repo
 
 - name: Stop Docker and Enable devicemapper
   systemd: state=stopped name=docker enabled=yes
