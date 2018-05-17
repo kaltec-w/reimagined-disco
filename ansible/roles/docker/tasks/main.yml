@@ -17,7 +17,7 @@
   yum:
     name: docker-ce
     state: present
-    enablerepo: docker-ce
+    enablerepo: docker-ce.repo
 
 - name: Stop Docker and Enable devicemapper
   systemd: state=stopped name=docker enabled=yes
