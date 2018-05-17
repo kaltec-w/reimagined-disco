@@ -2,11 +2,10 @@
 - hosts: localhost
 
   roles:
-  - { role: preinstall, tags: ['preinstall'] }
-  - { role: commands, tags: ['commands'] }
   - { role: docker, tags: ['docker'] }
-  - { role: mariadb, tags: ['mariadb'] }
   - { role: librenms, tags: ['librenms'] }
-  - { role: portainer, tags: ['portainer'] }
+  - { role: mariadb, tags: ['mariadb'] }
   - { role: motd, tags: ['motd'] }
+  - { role: portainer, tags: ['portainer'] }
+  - { role: preinstall, tags: ['preinstall'] }
   - { role: watchtower, tags: ['watchtower'] }
