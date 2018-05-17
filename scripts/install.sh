@@ -61,7 +61,6 @@ else
 fi
 
 
-
 sudo yum upgrade -y
 sudo yum install epel-release -y 
 sudo yum install dialog git wget vim whiptail -y 

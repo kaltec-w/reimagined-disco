@@ -59,7 +59,6 @@ case $CHOICE in
         A)
             bash /opt/rdisco/scripts/full_install.sh ;;
         Z)
+            bash /opt/rdisco/scripts/messages/end.sh
             exit 0 ;;
 esac
-
-clear
