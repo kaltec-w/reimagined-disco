@@ -2,6 +2,8 @@
 
 # CURL Install
 
+clear
+
 echo " --------------------------------------------------------------------- ";
 echo " [ ! ]          C A U T I O N!           !C U I D A D O!          [ ! ]";
 echo " --------------------------------------------------------------------- ";
@@ -46,7 +48,7 @@ echo "  of software, programs, scripts, applications, etc."
 echo "";
 echo "";
 # read: safe shell input check. non-negated answer continues, else aborts.
-read -p "Would you like to proceed updating and upgrading your OS and ALL packages? " -n 1 -r
+read -p "Would you like to proceed updating and upgrading your OS and ALL packages? (Y/n) " -n 1 -r
 echo    # move cursor to a new line
 if [[ ! $REPLY =~ ^[Yy]$ ]]
 then
@@ -70,4 +72,5 @@ sudo rm -r /opt/rdisco
 
 sudo git clone https://github.com/kaltec-w/reimagined-disco.git /opt/rdisco
 
+sudo bash /opt/rdisco/menus/install_rdisco.sh
 sudo bash /opt/rdisco/menus/main.sh
