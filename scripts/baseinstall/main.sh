@@ -10,6 +10,7 @@ else
   clear
   dialog --title "rDisco Install" \
   --msgbox "\nInstall cancelled. run rdisco again." 0 0
+  clear
   echo "To restart installation, type: sudo rdisco"
   exit 0
 fi
@@ -21,7 +22,6 @@ sleep 5
 
 echo "16" | dialog --gauge "Enabling System Health Monitoring" 7 50 0
 yum install sysstat nmon -y 1>/dev/null 2>&1
-sed -i 's/false/true/g' /etc/default/sysstat 1>/dev/null 2>&1
 sleep 5
 
 ############################################################ Ansible Installation
