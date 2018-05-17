@@ -62,10 +62,10 @@ fi
 
 
 
-sudo yum upgrade -y 1>/dev/null 2>&1
-sudo yum install epel-release -y 1>/dev/null 2>&1
-sudo yum install dialog git wget vim whiptail -y 1>/dev/null 2>&1
-sudo yum upgrade -y 1>/dev/null 2>&1
+sudo yum upgrade -y
+sudo yum install epel-release -y 
+sudo yum install dialog git wget vim whiptail -y 
+sudo yum upgrade -y 
 
 sudo rm -r /opt/rdisco
 
