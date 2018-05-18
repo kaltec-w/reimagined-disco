@@ -1,5 +1,6 @@
 ---
-
+- include_role:
+    name: variables
 
 - name: mariadb Container
   docker_container:
@@ -21,7 +22,7 @@
       PUID: "1000"
       PGID: "1000"
       TZ: "PDT"
-      MYSQL_ROOT_PASSWORD: ""
+      MYSQL_ROOT_PASSWORD: "{{ mariadb_root_pw }}"
     volumes:
      - /opt/appdata/mariadb/mysql:/etc/mysql
      - /opt/appdata/mariadb/db:/var/lib/mysql

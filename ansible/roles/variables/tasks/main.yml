@@ -1,0 +1,3 @@
+---
+- vars:
+    mariadb_root_pw: "SomePassword"
