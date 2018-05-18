@@ -1,1 +1,33 @@
 ---
+
+
+- name: mariadb Container
+  docker_container:
+    name: mariadb
+    state: absent
+
+- name: Create mariadb directories
+  file: "path={{item}} state=directory mode=0775 owner=1000 group=1000"
+  with_items:
+    - /opt/appdata/mariadb/mysql
+    - /opt/appdata/mariadb/db
+
+- name: Deploy mariadb Container
+  docker_container:
+    name: mariadb
+    image: mariadb
+    pull: yes
+    env:
+      PUID: "1000"
+      PGID: "1000"
+      TZ: "PDT"
+      MYSQL_ROOT_PASSWORD: ""
+    volumes:
+     - /opt/appdata/mariadb/mysql:/etc/mysql
+     - /opt/appdata/mariadb/db:/var/lib/mysql
+    networks:
+      - name: rdisco
+        aliases:
+          - mariadb
+    restart_policy: always
+    state: started

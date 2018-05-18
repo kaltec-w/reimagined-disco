@@ -1,7 +1,4 @@
 ---
-- include_role:
-    name: variables
-
 - name: create rdisco network
   docker_network:
     name: "rdisco"
