@@ -10,6 +10,28 @@
     - htop
     - dialog
     - lsof
+    - python
+    - python34
+    - python2-pip
+    - python-setuptools
+    - python34-pip
+    - python34-setuptools
+  ignore_errors: yes
+
+- name: EasyInstall (v2)
+  shell: easy_install-2.7 -U pip
+  ignore_errors: yes
+
+- name: EasyInstall
+  shell: easy_install -U pip
+  ignore_errors: yes
+
+- name: requests
+  shell: requests
+  ignore_errors: yes
+
+- name: python34 requests
+  shell: python3 -m pip install requests
   ignore_errors: yes
 
 - name: Ansible-ToolBox from https://github.com/larsks/ansible-toolbox
